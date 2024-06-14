@@ -1,9 +1,12 @@
+import HomeComponent from '@/components/HomeComponent'
+import HomePostFeedComp from '@/components/HomePostFeedComp'
 import React from 'react'
 
 const page = () => {
   return (
     <div>
-      <h1 className=' text-red-400'>Hello</h1>
+       <HomeComponent/>
+       <HomePostFeedComp/>
     </div>
   )
 }

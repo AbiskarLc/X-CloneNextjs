@@ -1,5 +1,6 @@
 "use client"
 import React, { useEffect, useState } from 'react'
+ import Image from 'next/image'
 
 const NewsFeed = () => {
 
@@ -26,14 +27,15 @@ const NewsFeed = () => {
     fetchNewsData()
     },[])
   return (
-    <div className=' flex flex-col items-start bg-gray-200 px-3 rounded-2xl space-y-3 pt-3'>
+    <div className=' relative  flex flex-col items-start bg-gray-200 px-3 rounded-2xl space-y-3 pt-3'>
+        <Image width={100} height={100} src={"/img/theme.png"} className=' w-[95%] cursor-pointer h-24 z-10 absolute opacity-60 rounded-lg'/>
         <h4 className=' font-bold text-xl'>Whats happening?</h4>
         {
             news.slice(0, articlenum).map((article,index)=>{
 
                 return <div key={article.url}>
                     <a href={article.url} target='_blank'></a>
-                    <div className=' flex items-center gap-2 hover:bg-gray-400 p-2 rounded-xl cursor-pointer transition duration-100'>
+                    <div className=' flex items-center gap-2 hover:text-teal-600 transition duration-100 hover:bg-gray-400 p-2 rounded-xl cursor-pointer '>
                         <div className=' flex flex-col gap-1 text-start'>
                         <h6 className=' text-[14px] font-bold'>{article.title}</h6>
                         <p className=' text-[12px] text-blue-600'>{article.source.name}</p>

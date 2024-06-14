@@ -1,6 +1,8 @@
 import React from 'react'
 
-const page = () => {
+const page = ({params}) => {
+
+  console.log(params.postId)
   return (
     <div>
         Post Page

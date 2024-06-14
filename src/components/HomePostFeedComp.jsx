@@ -15,10 +15,9 @@ const HomePostFeedComp =async () => {
 
   
   return (
-     <div className="flex flex-col gap-2 overflow-y-auto h-screen pb-8 scrollbar-hide">
+     <div className="flex flex-col gap-2 overflow-y-auto h-screen pb-1 sm:pb-8 scrollbar-hide">
       {
         data.map((post,index)=>{
-          console.log(post)
           return  <Post key={index} post={post}/>
         })
       }

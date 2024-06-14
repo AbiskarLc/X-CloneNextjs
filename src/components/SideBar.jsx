@@ -9,10 +9,10 @@ const SideBar = () => {
 
   const [togglemenu,setToggleMenu] = useState(false)
   const { data } = useSession();
-
+console.log(data);
   return (
     <>
-      <div className=" relative flex flex-col justify-center items-center sm:items-start p-3  gap-4">
+      <div className=" relative flex sm:flex-col justify-center items-center sm:items-start p-3  gap-4">
         <Link href={"/"}>
           <FaXTwitter className=" w-16 h-16 cursor-pointer p-3 hover:bg-gray-100 rounded-full transition-all duration-100 animate-bounce" />
         </Link>
@@ -39,11 +39,11 @@ const SideBar = () => {
           </button>
         )}
       </div>
-      {data && (
+      {data ? (
         <>
         {
           togglemenu &&
-          <div className=" transition duration-100 sm:hidden absolute bottom-16 flex flex-col gap-1 border-2 p-1 rounded-md shadow-lg" onMouseLeave={()=> setToggleMenu(false)}>
+          <div className=" transition duration-100 sm:hidden absolute right-[100px] flex flex-col gap-1 border-2 p-1 rounded-md shadow-lg" onMouseLeave={()=> setToggleMenu(false)}>
           <div className=" flex justify-center items-center hover:bg-sky-300 border-b-2  hover:text-white cursor-pointer p-1 rounded-md ">
             <p className=" text-sm font-semibold" onClick={()=> signOut()}>Sign Out</p>
           </div>
@@ -65,6 +65,13 @@ const SideBar = () => {
           </div>
         </div>
         </>
+      ):(
+        <button
+        className="sm:hidden items-center  w-36 h-8 bg-blue-400 rounded-2xl text-white font-semibold text-sm hover:brightness-95 shadow-md"
+        onClick={() => signIn()}
+      >
+        Sign In
+      </button>
       )}
     </>
   );

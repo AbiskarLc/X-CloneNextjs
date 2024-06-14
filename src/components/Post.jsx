@@ -3,7 +3,6 @@ import Link from "next/link";
 import Icons from "./Icons";
 
 const Post = ({post}) => {
-  console.log(post.id)
   return (
     <div className='flex p-2 gap-2  hover:bg-gray-100 cursor-pointer' >
     <div className=" flex justify-center items-center w-10 h-10 rounded-full border-[1.5px] border-gray-400">
@@ -22,7 +21,7 @@ const Post = ({post}) => {
    <img width={100} height={100} src={post.postImage} className=" w-full h-[250px]  bg-cover rounded-xl"/>
    </Link>
   </div>
-  <Icons/>
+  <Icons id={post.id}/>
 </div>
 </div>
   )

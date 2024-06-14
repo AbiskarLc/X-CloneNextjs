@@ -7,7 +7,7 @@ const SideBarMainComp = () => {
   return (
     <>
 
-          <div className={` hidden sm:flex sticky top-0 left-0 flex-col items-center justify-between p-3 h-screen border-r-2`}>
+          <div className={`  flex sm:sticky top-0 left-0 sm:flex-col items-center justify-between p-3 sm:h-screen border-r-2`}>
             <SideBar />
           </div>
     </>

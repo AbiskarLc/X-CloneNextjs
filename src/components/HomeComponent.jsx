@@ -9,7 +9,7 @@ const HomeComponent = () => {
 
   return (
     <div className='flex-1 flex flex-col gap-1'>
-        <h3 className=' font-bold'>Home</h3>
+        <h3 className=' font-bold  text-center'>Home</h3>
          <hr className=' w-auto border-[1px]' />
          {
            data &&

@@ -19,8 +19,6 @@ const HomePostComp = () => {
     const { data:session } = useSession();
     const imagRef = useRef();
     const db = getFirestore(app);
-    console.log(imageFileUrl)
-    console.log(imageUrl)
     const uploadImage = async () =>{
 
       if(file){
@@ -78,7 +76,7 @@ const HomePostComp = () => {
       })
 
       const docRef = await addDoc(collection(db,'posts'),{
-        uid: new Date().getTime(),
+        uid: session.user.uid,
         username : session.user.name,
         email : session.user.email,
         desc: input.description,

@@ -91,7 +91,7 @@ const HomePostComp = () => {
         description:"",
         postImageUrl: ""
       })
-
+      window.location.reload();
       console.log("Document written with ID: ", docRef.uid);
       } catch (error) {
         console.log(error)

@@ -103,7 +103,7 @@ const HomePostComp = () => {
     <>
 
     <div className=" flex justify-center items-center w-10 h-10 rounded-full border-[1.5px] border-gray-400">
-    <img src={session && session.user.image} className=" w-[40px] h-[40px] rounded-full" alt="" width={70} />
+    <img src={session && session.user.image} className=" w-[40px] h-[40px] rounded-full" alt="user image" width={70} />
   </div>
   <form className=' flex-1 flex flex-col gap-4 p-1' onSubmit={handleSubmit}>
     

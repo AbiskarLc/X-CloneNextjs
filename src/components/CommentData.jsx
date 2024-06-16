@@ -11,6 +11,7 @@ import {
   serverTimestamp,
   setDoc,
 } from "firebase/firestore";
+import moment from "moment";
 import { signIn, useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import { HiHeart, HiOutlineHeart } from "react-icons/hi";
@@ -21,7 +22,7 @@ const CommentData = ({ comment, postId }) => {
     const [isLiked, setIsLiked] = useState(false);
     const [likes, setLikes] = useState([]);
     const { data: session } = useSession();
-    const db = getFirestore();
+    const db = getFirestore(app);
 
     const handleLike = async () =>{
 
@@ -55,7 +56,6 @@ const CommentData = ({ comment, postId }) => {
         const like = likes.some((like)=> like.id === session?.user?.uid)
         setIsLiked(like)
       },[db,likes])
-
   return (
     <div className=" flex flex-col gap-2  hover:bg-gray-200 p-2">
       <div className="flex gap-2 items-center cursor-pointer">
@@ -69,8 +69,9 @@ const CommentData = ({ comment, postId }) => {
         </div>
         <div className=" flex-1">
             <div className=" flex items-center justify-between">
-            <p>
+            <p className=" flex gap-1 items-center">
           <span className=" text-[14px] font-bold">{comment.name}</span>
+          <span className=" text-xs">{moment(comment.timestamp).fromNow()}</span>
         </p>
         <IoEllipsisHorizontalSharp />
             </div>

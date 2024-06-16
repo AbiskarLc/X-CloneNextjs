@@ -27,7 +27,7 @@ const NewsFeed = () => {
     fetchNewsData()
     },[])
   return (
-    <div className=' relative  flex flex-col items-start bg-gray-200 px-3 rounded-2xl space-y-3 pt-3'>
+    <div className=' relative  flex flex-col items-start bg-gray-200 px-3 rounded-2xl space-y-3 pt-3 pb-2'>
         <Image width={100} height={100} src={"/img/theme.png"} className=' w-[95%] cursor-pointer h-24 z-10 absolute opacity-60 rounded-lg'/>
         <h4 className=' font-bold text-xl'>Whats happening?</h4>
         {

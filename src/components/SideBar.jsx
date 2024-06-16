@@ -9,7 +9,7 @@ const SideBar = () => {
 
   const [togglemenu,setToggleMenu] = useState(false)
   const { data } = useSession();
-console.log(data);
+
   return (
     <>
       <div className=" relative flex sm:flex-col justify-center items-center sm:items-start p-3  gap-4">
@@ -56,7 +56,7 @@ console.log(data);
         
         <div className=" w-fit flex items-center md:gap-2 md:w-52 sm:border-2 border-transparent sm:hover:border-2 cursor-pointer sm:hover:bg-gray-200 hover:border-gray-300 rounded-3xl p-[2px]">
           <div className=" flex justify-center items-center w-12 h-12 rounded-full border-[1.5px] border-gray-400">
-            <img src={data.user.image} className=" w-[40px] h-[40px] rounded-full" alt="" width={70} onMouseEnter={()=> setToggleMenu(togglemenu?false:true)} />
+            <img src={data.user.image} className=" w-[40px] h-[40px] rounded-full" alt={data?.user?.image} width={70} onMouseEnter={()=> setToggleMenu(togglemenu?false:true)} />
           </div>
           <div className="hidden md:block">
           <p className=" text-sm text-gray-800 font-bold">{data.user.name}</p>

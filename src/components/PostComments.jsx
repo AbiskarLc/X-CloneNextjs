@@ -6,9 +6,6 @@ import CommentData from "./CommentData";
 
 const PostComments =async ({id}) => {
 
-
-    
-
     const fetchAllCommentsToThePost = async () => {
         const data = [];
         try {
@@ -19,7 +16,6 @@ const PostComments =async ({id}) => {
             );
     
             querySnapshot.docs.forEach((comment) => {
-                // Extract the data fields you need and create a plain object
                 const commentData = {
                     id: comment.id,
                     comment: comment.data().comment,
@@ -45,7 +41,6 @@ const PostComments =async ({id}) => {
     <div className=" flex flex-col pb-4">
        {
         data.map((comment)=>{
-             console.log(comment)
             return  <CommentData key={comment.id} comment={comment} postId={id}/>
         })
        }

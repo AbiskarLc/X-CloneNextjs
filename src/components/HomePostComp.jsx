@@ -12,6 +12,7 @@ const HomePostComp = () => {
       description: "",
       postImageUrl : ""
     })
+    const [error,setError] = useState(null);
     const [imageFileUrl,setImageFileUrl] = useState(null)
     const  [postLoading,setPostLoading] = useState(false)
     const [imageUploading,setImageUploading] = useState(false);
@@ -37,9 +38,10 @@ const HomePostComp = () => {
              const progress = (snapshot.totalBytes / snapshot.bytesTransferred) * 100;
              console.log(`file upload completed ${progress}%`)
       },(error)=>{
+        setError(`Image size should be less than 2 mb`);
+        console.log(error)
         setImageUploading(false);
         setFile(null)
-        console.log(`failed to upload image`, error)
       },()=>{
         getDownloadURL(uploadTask.snapshot.ref).then((downloadUrl)=>{
           setImageUrl(downloadUrl)
@@ -48,6 +50,7 @@ const HomePostComp = () => {
       })
       
     } catch (error) {
+      setError(error.message);
       setImageUploading(false)
       setFile(null)
       console.log(error)
@@ -64,6 +67,16 @@ const HomePostComp = () => {
     },[file])
 
     
+    useEffect(()=>{
+
+      if(error){
+
+        setTimeout(()=>{
+
+          setError(null)
+        },3000)
+      }
+    },[error])
 
     const handleSubmit = async (e) =>{
 
@@ -120,6 +133,12 @@ const HomePostComp = () => {
         <button type="submit" disabled={input.description.trim() === '' || imageUploading || postLoading }  className=" cursor-pointer items-center w-16  sm:w-20 h-8 bg-blue-400 rounded-2xl text-white font-semibold text-sm hover:brightness-95 shadow-md" > Post</button>
         
        </div>
+       {
+        error && <div className=" flex justify-center  text-white items-center rounded-xl hover:bg-red-50 cursor-pointer hover:text-red-600 w-full h-10 bg-red-300 text-sm border-[1.5px] border-red-200 ">
+        <p className="">{error}</p>
+      </div>
+       }
+        
   </form>
   </>
   )

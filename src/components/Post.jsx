@@ -12,7 +12,7 @@ const Post = ({post}) => {
 </div>
 <div className="flex-1 flex flex-col gap-1">
   <div className="flex justify-between items-center">
-      <p className=' text-sm'><span className=' font-bold'>{post.username}</span><span className=' text-xs'>{post.email}</span></p>
+      <p className=' text-sm flex gap-1 items-center'><span className=' font-bold'>{post.username}</span><span className=' text-xs'>{post.email}</span></p>
       <IoEllipsisHorizontalSharp />
   </div>
   <Link href={`/posts/${post.id}`}>
